@@ -1,0 +1,35 @@
+{
+  "name": "uk-postcodes-node",
+  "version": "0.1.0",
+  "description": "Wrapper for UK-Postcodes.com API",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "chai": "~1.8.1",
+    "extend" : "2.1.2",
+    "underscore" : "1.5.2"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.0"
+  },
+  "scripts": {
+    "test": "mocha tests/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cblanc/uk-postcodes-node"
+  },
+  "keywords": [
+    "uk-postcodes.com",
+    "postcodes",
+    "api",
+    "wrapper"
+  ],
+  "author": "Chris Blanchard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cblanc/uk-postcodes-node/issues"
+  }
+}

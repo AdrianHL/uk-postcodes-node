@@ -11,16 +11,45 @@ This is a API wrapper for uk-postcodes.com, a free lookup API for UK postcodes
 **Looking up a postcode**
 
 ```
-UKPostcodes.Postcode("NW1 9HZ").getData(function (error, data) {
-	// Result here
+UKPostcodes.getPostcode(postcode, function (error, data) {
+	console.log(data);
+	// {
+	//   "postcode": "SW1A 2AA",
+	//   "geo": {
+	//     "lat": 51.503539898875815,
+	//     "lng": -0.12768084037293415,
+	//     "easting": 530047,
+	//     "northing": 179951,
+	//     "geohash": "http://geohash.org/gcpuvpgjbgdq"
+	//   },
+	//   "administrative": {
+	//     "council": {
+	//       "title": "City of Westminster",
+	//       "uri": "http://statistics.data.gov.uk/id/statistical-geography/E09000033",
+	//       "code": "E09000033"
+	//     },
+	//     "ward": {
+	//       "title": "St. James's",
+	//       "uri": "http://statistics.data.gov.uk/id/statistical-geography/E05000644",
+	//       "code": "E05000644"
+	//     },
+	//     "constituency": {
+	//       "title": "Cities of London and Westminster",
+	//       "uri": "http://statistics.data.gov.uk/id/statistical-geography/E14000639",
+	//       "code": "E14000639"
+	//     }
+	//   }
+	// }
 });
 ```
 
 **Lookup nearest postcode for point**
 
+- latlng is a string indicating a geolocation within the UK, e.g. "52.22331,-0.215323"
+
 ```
-UKPostcodes.nearestPostcode(latitude, longitude, function (error, data) {
-	// Returns postcode object
+UKPostcodes.nearestPostcode(latlng, function (error, data) {
+	// Returns postcode object as above
 })
 ```
 
@@ -37,6 +66,8 @@ UKPostcodes.nearest("NW1 9HZ", 12, function (error, postcodes) {
 	
 })
 ```
+
+## To be implemented
 
 **Looking up postcodes within X miles of point**
 
@@ -60,18 +91,3 @@ UKPostcodes.nearest("52.9667", "-1.1667", 12, function (error, postcodes) {
 ## License
 
 MIT
-
-
-API
-Get the data you want simply by constructing your URLs as follows:
-
-Return data for a postcode
-http://uk-postcodes.com/postcode/[postcode (no space)].['xml', 'csv', 'json'* or 'rdf']
-Return data for the nearest postcode to a point
-http://uk-postcodes.com/latlng/[latitude],[longitude].['xml', 'csv', 'json'* or 'rdf']
-Return data for postcodes within x distance (miles) of a postcode or lat/lng
-http://uk-postcodes.com/postcode/nearest?postcode=[postcode]&miles=[distance in miles]&format=[xml|csv|json]
-http://uk-postcodes.com/postcode/nearest?lat=[latitude]&lng=[longitude]&miles=[distance in miles]&format=[xml|csv|json]
-That's it! Be nice to the server and cache your requests!
-
-* If using JSON, add '?callback=[some function call]' to the url to return JSONP

@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/cblanc/uk-postcodes-node.png)](https://travis-ci.org/cblanc/uk-postcodes-node) 
+
 # UK-Postcodes Node.js Wrapper
 
 This is a API wrapper for uk-postcodes.com, a free lookup API for UK postcodes

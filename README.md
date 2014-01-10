@@ -11,6 +11,8 @@ This is a API wrapper for uk-postcodes.com, a free lookup API for UK postcodes
 **Looking up a postcode**
 
 ```
+var postcode = "SW1A 2AA";
+
 UKPostcodes.getPostcode(postcode, function (error, data) {
 	console.log(data);
 	// {
@@ -53,6 +55,8 @@ UKPostcodes.nearestPostcode(latlng, function (error, data) {
 })
 ```
 
+## To be implemented
+
 **Looking up within X miles of postcode**
 
 UKPostcodes#nearest("postcode", [radius], callback);
@@ -67,8 +71,6 @@ UKPostcodes.nearest("NW1 9HZ", 12, function (error, postcodes) {
 })
 ```
 
-## To be implemented
-
 **Looking up postcodes within X miles of point**
 
 UKPostcodes#nearest(longitude, latitude, [radius], callback);
@@ -82,6 +84,10 @@ UKPostcodes.nearest("52.9667", "-1.1667", 12, function (error, postcodes) {
 	
 })
 ```
+
+## Test
+
+`npm test`
 
 ## Todo
 

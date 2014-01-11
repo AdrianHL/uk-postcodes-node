@@ -8,8 +8,9 @@
   },
   "dependencies": {
     "chai": "~1.8.1",
-    "extend" : "2.1.2",
-    "underscore" : "1.5.2"
+    "xtend" : "~2.1.2",
+    "underscore" : "~1.5.2",
+    "postcode" : "~0.1.1"
   },
   "devDependencies": {
     "mocha": "~1.17.0"

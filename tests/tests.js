@@ -50,14 +50,13 @@ describe("UKPostcode#nearestPostcode", function () {
 	});
 
 	// API issue to be resolved
-	// it ("should return null if something can't be found", function (done) {
-	// 	UKPostcodes.nearestPostcode(bogusLocation, function (error, result) {
-	// 		if (error) throw error;
-	// 		console.log(result);
-	// 		assert.isNull(result);
-	// 		done();
-	// 	});
-	// });
+	it ("should return null if something can't be found", function (done) {
+		UKPostcodes.nearestPostcode(bogusLocation, function (error, result) {
+			if (error) throw error;
+			assert.isNull(result);
+			done();
+		});
+	});
 });
 
 // Todo

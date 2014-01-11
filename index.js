@@ -1,6 +1,7 @@
 var	path = require("path"),
 		fs = require("fs"),
 		util = require("./lib/util"),
+		Postcode = require("postcode"),
 		package = JSON.parse(fs.readFileSync(path.join(__dirname, "package.json")));
 
 var DEFAULTS = {};
@@ -42,6 +43,13 @@ UKPostcodes.prototype.nearestPostcode = function (geolocation, callback) {
 }
 
 UKPostcodes.prototype.nearestPostcodes = function (location, callback) {
+	if (util.validGeolocation(location)) {
+		
+	} else if (new Postcode(postcode).valid()) {
+		
+	} else {
+		return callback(null);
+	}
 	// Two strings, number => nearest postcodes for 
 	// String with number => nearest postcodes for postcodes
 

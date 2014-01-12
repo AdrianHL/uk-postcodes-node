@@ -1,6 +1,7 @@
 var UKPostcodes = require("../index"),
 		path = require("path"),
 		fs = require("fs"),
+		maxApiTimeout = 20000, // Max time for API to respond before we fail test
 		assert = require("chai").assert;
 
 var isPostcodeResult = function(result, testPostcode) {
@@ -13,8 +14,13 @@ var isPostcodeResult = function(result, testPostcode) {
 	assert.property(result.geo, "lng");
 }
 
+var isSimplePostcodeResult = function (result) {
+	assert.property(result.geo, "lat");
+	assert.property(result.geo, "lng");	
+}
+
 describe("UKPostcode#getPostcode", function () {
-	this.timeout(10000);
+	this.timeout(maxApiTimeout);
 
 	var testPostcode = "NW1 9HZ",
 			bogusPostcode = "ID1 1QD";
@@ -37,7 +43,7 @@ describe("UKPostcode#getPostcode", function () {
 });
 
 describe("UKPostcode#nearestPostcode", function () {
-	this.timeout(10000);
+	this.timeout(maxApiTimeout);
 	var testLocation = "52.9667,-1.1667",
 			bogusLocation = "0,0";
 
@@ -59,10 +65,32 @@ describe("UKPostcode#nearestPostcode", function () {
 	});
 });
 
-// Todo
-// describe("UKPostcode#nearestPostcodes", function () {
-// 	this.timeout(10000);
-// 	it ("should return the nearest postcode with location and no radius");
-// 	it ("should return nearest postcodes with postcode and radius");
-// 	it ("should return nearest postcodes with location and radius");
-// });
+describe("UKPostcode#nearestPostcodes", function () {
+	this.timeout(maxApiTimeout);
+	var testPostcode = "OX173PL",
+			bogusPostcode = "ID1 1QD",
+			radius = 0.1;
+	describe("Using a postcode", function () {
+		it ("should return a list of postcodes", function (done) {
+			UKPostcodes.nearestPostcodes(testPostcode, radius, function (error, results) {
+				if (error) throw error;
+				results.forEach(function (postcode) {
+					isSimplePostcodeResult(postcode);
+				});
+				done();
+			});
+		});
+		// it ("should set default radius to 0.1 mile when miles not specified", function (done) {
+		// 	UKPostcodes.nearestPostcodes(testPostcode, function (error, results) {
+
+		// 	})
+		// });
+		it ("should return null if invalid postcode");
+	});
+	// Todo
+	describe("Using longitude and latitude", function () {
+		it ("should return a list of postcodes");
+		it ("should set default radius to 0.1 mile when miles not specified");
+		it ("should return null if invalid lon/lat");
+	});
+});

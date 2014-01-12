@@ -1,19 +1,17 @@
 var	path = require("path"),
 		fs = require("fs"),
-		util = require("./lib/util"),
-		Postcode = require("postcode"),
+		utils = require("./lib/utils"),
 		package = JSON.parse(fs.readFileSync(path.join(__dirname, "package.json")));
 
 var DEFAULTS = {};
-DEFAULTS.host = "uk-postcodes.com"
-DEFAULTS.port = 80;
-DEFAULTS.version = package.version;
+		DEFAULTS.host = "uk-postcodes.com";
+		DEFAULTS.port = 80;
+		DEFAULTS.version = package.version;
 
-// Load in REST resources
 var resources = {
 	Postcode: require(path.join(__dirname, "lib/postcode")),
-	Geolocation: require(path.join(__dirname, "lib/geolocation"))
-	// Vicinity: require(path.join(__dirname, "lib/vicinity"))
+	Geolocation: require(path.join(__dirname, "lib/geolocation")),
+	Vicinity: require(path.join(__dirname, "lib/vicinity"))
 }
 
 function UKPostcodes() {
@@ -36,20 +34,16 @@ UKPostcodes.prototype.getPostcode = function (postcode, callback) {
 }
 
 UKPostcodes.prototype.nearestPostcode = function (geolocation, callback) {
-	if (!util.validGeolocation(geolocation)) {
+	if (!utils.validGeolocation(geolocation)) {
 		return callback(new Error("Invalid location specified"), null);
 	}
 	this.Geolocation.get(geolocation, callback);
 }
 
-UKPostcodes.prototype.nearestPostcodes = function (location, callback) {
-	if (util.validGeolocation(location)) {
-		
-	} else if (new Postcode(postcode).valid()) {
-		
-	} else {
-		return callback(null);
-	}
+UKPostcodes.prototype.nearestPostcodes = function (location, radius, callback) {
+	this.Vicinity.get(location, radius, callback);
+	// Return error if inapprorpirate radius value
+	
 	// Two strings, number => nearest postcodes for 
 	// String with number => nearest postcodes for postcodes
 

@@ -1,6 +1,6 @@
 {
   "name": "uk-postcodes-node",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Wrapper for UK-Postcodes.com API",
   "main": "index.js",
   "directories": {

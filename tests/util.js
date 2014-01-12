@@ -1,4 +1,4 @@
-var util = require("../lib/util"),
+var util = require("../lib/utils"),
 		path = require("path"),
 		fs = require("fs"),
 		assert = require("chai").assert,
@@ -29,5 +29,21 @@ describe("validGeolocation", function () {
 		testData.tests.forEach(function(test){
 			assert.equal(util.validGeolocation(test.base), test.expected);
 		});
+	});
+});
+
+describe("getLon", function () {
+	var locationString = "52.2523533,-0.24235354";
+	it ("should extract latitude", function () {
+		var result = util.getLon(locationString);
+		assert.equal(result, "-0.24235354");
+	});
+});
+
+describe("getLat", function () {
+	var locationString = "52.2523533,-0.24235354";
+	it ("should extract latitude", function () {
+		var result = util.getLat(locationString);
+		assert.equal(result, "52.2523533");
 	});
 });

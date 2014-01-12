@@ -15,8 +15,8 @@ var isPostcodeResult = function(result, testPostcode) {
 }
 
 var isSimplePostcodeResult = function (result) {
-	assert.property(result.geo, "lat");
-	assert.property(result.geo, "lng");	
+	assert.property(result, "lat");
+	assert.property(result, "lng");	
 }
 
 describe("UKPostcode#getPostcode", function () {
@@ -67,10 +67,10 @@ describe("UKPostcode#nearestPostcode", function () {
 
 describe("UKPostcode#nearestPostcodes", function () {
 	this.timeout(maxApiTimeout);
-	var testPostcode = "OX173PL",
-			bogusPostcode = "ID1 1QD",
-			radius = 0.1;
+	var radius = 0.1;
 	describe("Using a postcode", function () {
+		var testPostcode = "OX173PL",
+				bogusPostcode = "ID1 1QD";
 		it ("should return a list of postcodes", function (done) {
 			UKPostcodes.nearestPostcodes(testPostcode, radius, function (error, results) {
 				if (error) throw error;
@@ -80,17 +80,29 @@ describe("UKPostcode#nearestPostcodes", function () {
 				done();
 			});
 		});
-		// it ("should set default radius to 0.1 mile when miles not specified", function (done) {
-		// 	UKPostcodes.nearestPostcodes(testPostcode, function (error, results) {
-
-		// 	})
-		// });
 		it ("should return null if invalid postcode");
 	});
 	// Todo
 	describe("Using longitude and latitude", function () {
-		it ("should return a list of postcodes");
-		it ("should set default radius to 0.1 mile when miles not specified");
+		var testLocation = "52.9667,-1.1667",
+				bogusLocation = "0,0";
+		it ("should return a list of postcodes", function (done) {
+			UKPostcodes.nearestPostcodes(testLocation, radius, function (error, results) {
+				if (error) throw error;
+				results.forEach(function (postcode) {
+					isSimplePostcodeResult(postcode);
+				});
+				done();
+			});
+		});
 		it ("should return null if invalid lon/lat");
+	});
+	describe("Invalid lookup", function () {
+		it ("should return an error for lookups which are neither a postcode or geolocation", function (done) {
+			UKPostcodes.nearestPostcodes("BOGUS", radius, function (error, result) {
+				assert.isNotNull(error);
+				done();
+			});
+		});
 	});
 });

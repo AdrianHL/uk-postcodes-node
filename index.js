@@ -42,17 +42,6 @@ UKPostcodes.prototype.nearestPostcode = function (geolocation, callback) {
 
 UKPostcodes.prototype.nearestPostcodes = function (location, radius, callback) {
 	this.Vicinity.get(location, radius, callback);
-	// Return error if inapprorpirate radius value
-	
-	// Two strings, number => nearest postcodes for 
-	// String with number => nearest postcodes for postcodes
-
-
-	// Lookups up nearest postcodes within location or postcode
-	// Arg check to see if postcode or location
-	// Check for radius, if no miles, return 1 result only
 }
-
-
 
 module.exports = new UKPostcodes();

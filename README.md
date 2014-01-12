@@ -57,32 +57,26 @@ UKPostcodes.nearestPostcode(latlng, function (error, data) {
 })
 ```
 
-## To be implemented
-
 **Looking up within X miles of postcode**
 
-UKPostcodes#nearest("postcode", [radius], callback);
-
-Radius defaults to 10 miles
+UKPostcodes#nearestPostcodes("postcode", radius, callback);
 
 ```
 // What are the nearest postcodes within a 12 mile radius of NW1 9HZ?
 
-UKPostcodes.nearest("NW1 9HZ", 12, function (error, postcodes) {
+UKPostcodes.nearestPostcodes("NW1 9HZ", 12, function (error, postcodes) {
 	
 })
 ```
 
 **Looking up postcodes within X miles of point**
 
-UKPostcodes#nearest(longitude, latitude, [radius], callback);
-
-Radius defaults to 10 miles
+UKPostcodes#nearestPostcodes(longitude, latitude, radius, callback);
 
 ```
 // What are the nearest postcodes within a 12 mile radius of 52.9667,-1.1667?
 
-UKPostcodes.nearest("52.9667", "-1.1667", 12, function (error, postcodes) {
+UKPostcodes.nearestPostcodes("52.9667,-1.1667", 12, function (error, postcodes) {
 	
 })
 ```
@@ -90,11 +84,6 @@ UKPostcodes.nearest("52.9667", "-1.1667", 12, function (error, postcodes) {
 ## Test
 
 `npm test`
-
-## Todo
-
-- Implement nearest postcodes within vicinity lookups for postcode and latlng
-- Await outcome to [issue#11](https://github.com/theodi/uk-postcodes/issues/11) to implement reponse to inappropriate latlng lookups
 
 ## License
 

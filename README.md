@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/cblanc/uk-postcodes-node.png)](https://travis-ci.org/cblanc/uk-postcodes-node) 
-[![Code Climate](https://codeclimate.com/github/cblanc/uk-postcodes-node.png)](https://codeclimate.com/github/cblanc/uk-postcodes-node)
+[![Code Climate](https://codeclimate.com/repos/52d51cfd69568074fd000a23/badges/d8c14564623fcc2d63ad/gpa.png)](https://codeclimate.com/repos/52d51cfd69568074fd000a23/feed)
 [![Dependency Status](https://gemnasium.com/cblanc/uk-postcodes-node.png)](https://gemnasium.com/cblanc/uk-postcodes-node)
 
 

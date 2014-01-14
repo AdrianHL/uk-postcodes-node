@@ -78,9 +78,9 @@ UKPostcodes.nearestPostcodes("AB42 2BN", 12, function (error, postcodes) {
 
 **Looking up postcodes within X miles of point**
 
-- latlng is a string indicating a geolocation within the UK, e.g. "52.22331,-0.215323"
-
 UKPostcodes#nearestPostcodes(latlon, radius, callback);
+
+- latlng is a string indicating a geolocation within the UK, e.g. "52.22331,-0.215323"
 
 ```
 // What are the nearest postcodes within a 12 mile radius of 52.9667,-1.1667?

@@ -9,7 +9,7 @@ This is a API wrapper for uk-postcodes.com, a free lookup API for UK postcodes
 
 ## Installation
 
-`npm install uk-postcodes`
+`npm install uk-postcodes-node`
 
 ## Getting Started
 

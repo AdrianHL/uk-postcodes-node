@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/cblanc/uk-postcodes-node.png)](https://travis-ci.org/cblanc/uk-postcodes-node) 
-[![Code Climate](https://codeclimate.com/github/cblanc/uk-postcodes-node.png)](https://codeclimate.com/github/cblanc/uk-postcodes-node) 
+[![Code Climate](https://codeclimate.com/github/cblanc/uk-postcodes-node.png)](https://codeclimate.com/github/cblanc/uk-postcodes-node)
+[![Dependency Status](https://gemnasium.com/cblanc/uk-postcodes-node.png)](https://gemnasium.com/cblanc/uk-postcodes-node)
 
 
 # UK-Postcodes Node.js Wrapper

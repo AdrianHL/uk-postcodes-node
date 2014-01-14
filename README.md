@@ -9,7 +9,9 @@ This is a API wrapper for uk-postcodes.com, a free lookup API for UK postcodes
 
 ## Installation
 
-`npm install uk-postcodes-node`
+```
+npm install uk-postcodes-node
+```
 
 ## Getting Started
 
@@ -52,6 +54,8 @@ UKPostcodes.getPostcode(postcode, function (error, data) {
 
 **Lookup nearest postcode for point**
 
+UKPostcodes#nearestPostcode(latlon, callback);
+
 - latlng is a string indicating a geolocation within the UK, e.g. "52.22331,-0.215323"
 
 ```
@@ -62,31 +66,35 @@ UKPostcodes.nearestPostcode(latlng, function (error, data) {
 
 **Looking up within X miles of postcode**
 
-UKPostcodes#nearestPostcodes("postcode", radius, callback);
+UKPostcodes#nearestPostcodes(postcode, radius, callback);
 
 ```
 // What are the nearest postcodes within a 12 mile radius of NW1 9HZ?
 
-UKPostcodes.nearestPostcodes("NW1 9HZ", 12, function (error, postcodes) {
-	
+UKPostcodes.nearestPostcodes("AB42 2BN", 12, function (error, postcodes) {
+	// Returns an array of postcodes
 })
 ```
 
 **Looking up postcodes within X miles of point**
 
-UKPostcodes#nearestPostcodes(longitude, latitude, radius, callback);
+- latlng is a string indicating a geolocation within the UK, e.g. "52.22331,-0.215323"
+
+UKPostcodes#nearestPostcodes(latlon, radius, callback);
 
 ```
 // What are the nearest postcodes within a 12 mile radius of 52.9667,-1.1667?
 
 UKPostcodes.nearestPostcodes("52.9667,-1.1667", 12, function (error, postcodes) {
-	
+	// Returns an array of postcodes
 })
 ```
 
 ## Test
 
-`npm test`
+```
+npm test
+```
 
 ## License
 

@@ -80,9 +80,14 @@ describe("UKPostcode#nearestPostcodes", function () {
 				done();
 			});
 		});
-		it ("should return null if invalid postcode");
+		it ("should return null if invalid postcode", function () {
+			UKPostcodes.nearestPostcodes(testPostcode, radius, function (error, results) {
+				if (error) throw error;
+				assert.isNull(results);
+				done();
+			});
+		});
 	});
-	// Todo
 	describe("Using longitude and latitude", function () {
 		var testLocation = "52.9667,-1.1667",
 				bogusLocation = "0,0";
@@ -95,7 +100,13 @@ describe("UKPostcode#nearestPostcodes", function () {
 				done();
 			});
 		});
-		it ("should return null if invalid lon/lat");
+		it ("should return null if invalid lon/lat", function () {
+			UKPostcodes.nearestPostcodes(bogusLocation, radius, function (error, results) {
+				if (error) throw error;
+				assert.isNull(results);
+				done();
+			});
+		});
 	});
 	describe("Invalid lookup", function () {
 		it ("should return an error for lookups which are neither a postcode or geolocation", function (done) {

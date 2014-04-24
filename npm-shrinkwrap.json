@@ -1,0 +1,20 @@
+{
+  "name": "uk-postcodes-node",
+  "version": "0.2.3",
+  "dependencies": {
+    "xtend": {
+      "version": "2.2.0",
+      "from": "xtend@~2.2.0",
+      "resolved": "https://registry.npmjs.org/xtend/-/xtend-2.2.0.tgz"
+    },
+    "underscore": {
+      "version": "1.6.0",
+      "from": "underscore@~1.6.0",
+      "resolved": "https://registry.npmjs.org/underscore/-/underscore-1.6.0.tgz"
+    },
+    "postcode": {
+      "version": "0.2.1",
+      "from": "postcode@~0.2.0"
+    }
+  }
+}

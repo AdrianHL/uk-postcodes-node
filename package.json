@@ -7,13 +7,13 @@
     "test": "tests"
   },
   "dependencies": {
-    "chai": "~1.8.1",
-    "xtend" : "~2.1.2",
-    "underscore" : "~1.5.2",
-    "postcode" : "~0.1.1"
+    "xtend" : "~2.2.0",
+    "underscore" : "~1.6.0",
+    "postcode" : "~0.2.0"
   },
   "devDependencies": {
-    "mocha": "~1.17.0"
+    "chai": "~1.9.0",
+    "mocha": "~1.18.0"
   },
   "scripts": {
     "test": "mocha tests/"

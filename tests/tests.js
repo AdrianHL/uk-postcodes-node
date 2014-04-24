@@ -80,9 +80,10 @@ describe("UKPostcode#nearestPostcodes", function () {
 				done();
 			});
 		});
-		it ("should return null if invalid postcode", function () {
-			UKPostcodes.nearestPostcodes(testPostcode, radius, function (error, results) {
-				if (error) throw error;
+		it ("should return null if invalid postcode", function (done) {
+			UKPostcodes.nearestPostcodes(bogusPostcode, radius, function (error, results) {
+				// UK-Postcodes API currently returns non-JSON responses for 500 errors
+				// if (error) throw error; 
 				assert.isNull(results);
 				done();
 			});
